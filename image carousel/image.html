@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+<div class="slideshow">
+
+<div class="slide">
+
+<img class="img1" src="pic1.jpg" id="img1">
+<div class="text" id="text1">Picture one</div>
+
+</div>
+
+
+
+<div class="slide">
+
+<img class="img2" src="pic2.jpg" id="img2">
+<div class="text" id="text2">Picture two</div>
+</div>
+
+
+
+<div class="slide">
+<img class="img3" src="pic3.jpg" id="img3">
+<div class="text" id="text3">Picture three</div>
+</div>
+<a class="prev" onclick="prev(-1)">❮</a>
+<a class="next" onclick="prev(1)">❯</a>
+</div>
+</body>
+
+
+<style>
+.slideshow{
+width: 1000px;
+position: relative;
+margin: auto;
+
+}
+
+img{
+    width: 100%;vertical-align: middle;
+}
+.slide{display: none;}
+
+
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+ 
+  padding: 16px;
+  margin-top: -22px;
+  color:black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+
+  user-select: none;
+}
+
+
+.next {
+  right: -47px;
+
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.prev{left: -47px;}
+
+.text {
+  color: black;
+  font-size: 25px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+</style>
+
+<script>
+
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function prev(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("slide");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+</html>
